@@ -4,26 +4,7 @@ import NewProduct from './NewProduct';
 import { useState } from 'react';
 
 function App() {
-  const [items, setItems] = useState([
-      {
-        description: 'bread',
-        amount: 1,
-        unit: 'pcs',
-        isInBasket: false,
-      },
-      {
-        description: 'milk',
-        amount: 1,
-        unit: 'liter',
-        isInBasket: false,
-      },
-      {
-        description: 'apples',
-        amount: 1.5,
-        unit: 'kg',
-        isInBasket: false,
-      }
-  ])
+  const [items, setItems] = useState([])
 
   const addProduct = ({description, unit, amount}) => {
     console.log('About to add ' + description)
