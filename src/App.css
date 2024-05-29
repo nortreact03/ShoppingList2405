@@ -8,8 +8,9 @@
 }
 
 .inBasket {
-  color: gray;
-  background-color: green;
+  color: black;
+  background-color: lightgray;
+  text-decoration: line-through;
 }
 
 @media (prefers-reduced-motion: no-preference) {
