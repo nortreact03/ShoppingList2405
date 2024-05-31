@@ -30,7 +30,9 @@ function Product({product, id, deleteProduct, toggleChecked}) {
                 {product.amount}
             </div>
             <div className="col-1">
-                <button onClick={deleteClicked} className="btn">Delete</button>
+                <button onClick={deleteClicked} className="btn">
+                    <i className="fa fa-car"></i>
+                </button>
             </div>
         </div>
     )

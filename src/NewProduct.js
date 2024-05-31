@@ -31,7 +31,10 @@ function NewProduct({addProduct}) {
                 className="col-2" 
                 placeholder="Amount"
                 value={amount}
-                onChange={(event) => setAmount(event.target.value) }
+                onChange={(event) => {
+                    //TODO: do so that set amount does not happen when event.target.value is not a number
+                    setAmount(event.target.value)
+                } }
             />
             <button 
                 className='col-2'
