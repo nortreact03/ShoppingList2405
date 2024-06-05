@@ -2,15 +2,23 @@ import { useState } from 'react'
 
 function NewProduct({addProduct}) {
     const [description, setDescription] = useState('')
-    const [unit, setUnit] = useState('')
+    const [unit, setUnit] = useState('kg')
     const [amount, setAmount] = useState('')
     const submitValues = () => {
+        
         console.log("About to submit values ");
         console.log('description', description);
         addProduct({description, unit, amount})
         setDescription('')
-        setUnit('')
+        setUnit('kg')
         setAmount('')
+    }
+
+    const amountChanged = ({target}) => {
+        if (isNaN(target.value)) {
+            return
+        }
+        setAmount(target.value)
     }
     return (
         <>
@@ -21,20 +29,22 @@ function NewProduct({addProduct}) {
                 value={description}
                 onChange={(event) => setDescription(event.target.value) }
             />
-            <input 
+            <select 
                 className="col-2" 
-                placeholder="Unit"
                 value={unit}
+                placeholder="Unit"
                 onChange={(event) => setUnit(event.target.value) }
-            />
+            >
+                <option value="kg">Kilogram</option>
+                <option value="pc">Piece</option>
+                <option value="l">Litre</option>
+            </select>
+
             <input 
                 className="col-2" 
                 placeholder="Amount"
                 value={amount}
-                onChange={(event) => {
-                    //TODO: do so that set amount does not happen when event.target.value is not a number
-                    setAmount(event.target.value)
-                } }
+                onChange={amountChanged}
             />
             <button 
                 className='col-2'
